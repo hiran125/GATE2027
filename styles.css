@@ -1,0 +1,66 @@
+:root{
+  --bg:#071120;
+  --panel:#071b2a;
+  --card:#0d2433;
+  --muted:#9fb3c8;
+  --accent1:#7c3aed;
+  --accent2:#06b6d4;
+  --accent3:#f97316;
+  --glass: rgba(255,255,255,0.04);
+  --radius:14px;
+  --text:#e6eef8;
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:linear-gradient(180deg,var(--bg),#03202a);color:var(--text);min-height:100vh}
+.app{display:flex;gap:18px;padding:18px}
+
+/* SIDEBAR */
+.sidebar{width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(2,6,23,0.6);display:flex;flex-direction:column}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.logo{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:white;background:linear-gradient(135deg,var(--accent1),var(--accent2));font-size:20px}
+.brand h2{margin:0;font-size:16px}
+.muted{color:var(--muted);font-size:13px;margin:0}
+
+.filters label{display:block;margin-top:10px;color:var(--muted);font-size:13px}
+.filters select, .filters input{width:100%;padding:8px;border-radius:10px;border:none;margin-top:6px;background:var(--glass);color:var(--text)}
+.side-actions{display:flex;gap:8px;margin-top:10px}
+.side-actions button{flex:1;padding:8px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:white;cursor:pointer}
+
+.subject-list{margin-top:12px;overflow:auto;flex:1;padding-right:6px}
+.subject-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;cursor:pointer;transition:all .18s;margin-bottom:8px;background:transparent}
+.subject-item:hover{transform:translateX(6px)}
+.subject-item .code{width:46px;height:36px;border-radius:10px;display:grid;place-items:center;font-weight:800}
+.subject-item .title{font-weight:700}
+.subject-item .months{font-size:12px;color:var(--muted)}
+
+.sidebar-footer{margin-top:10px;font-size:12px;color:var(--muted)}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column}
+.main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.actions{display:flex;gap:10px;align-items:center}
+.actions button{padding:8px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent3));color:white;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+.mini{display:flex;flex-direction:column;margin-left:10px}
+.mini input{padding:6px;border-radius:8px;border:none;background:var(--glass);color:var(--text)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:14px}
+
+/* SUBJECT CARD */
+.card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden;animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)}}
+
+.card .head{display:flex;justify-content:space-between;align-items:center}
+.card .head h3{margin:0;color:var(--accent2)}
+.card .meta{font-size:13px;color:var(--muted);margin-top:6px}
+
+.card .topics{margin-top:10px;max-height:340px;overflow:auto;padding-right:6px}
+.topic-row{display:flex;align-items:flex-start;gap:10px;padding:8px;border-radius:8px}
+.topic-row label{cursor:pointer}
+.topic-row.done label{text-decoration:line-through;opacity:0.6}
+
+.card .card-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.card .card-actions button{padding:8px 10px;border-radius:8px;border:none;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:white;cursor:pointer}
+
+/* small adjustments */
+@media (max-width:920px){ .sidebar{display:none} .app{padding:12px} }
